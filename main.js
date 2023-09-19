@@ -1,4 +1,4 @@
-const board = document.querySelectorAll('#gameBoard span');
+const board = document.querySelectorAll('#gameBoard div');
 let vBoard = []
 let turnPlayer = '';
 
@@ -10,7 +10,7 @@ function updateTittle() {
 function initializeGame() {
     vBoard = [["","",""], ["","",""], ["","",""]];
     turnPlayer = "player1"
-    document.querySelector('h2').innerHTML = 'Vez de: <span id="turnPlayer"></span>'
+    document.querySelector('h2').innerHTML = 'Vez de: <div id="turnPlayer"></div>'
     updateTittle();
     board.forEach( function (element)  {
         element.classList.remove('win');
@@ -55,25 +55,25 @@ function disableBoard(element) {
 }
 
 function handleBoardClick(event) {
-    const span = event.currentTarget;
-    const boardRegion = span.dataset.region;
+    const div = event.currentTarget;
+    const boardRegion = div.dataset.region;
     const boardRow = boardRegion.split('.');
     const row = boardRow[0];
     const col = boardRow[1];
     if (turnPlayer === 'player1') {
-        span.innerText = 'X';
+        div.innerText = 'X';
         vBoard[row][col] = 'X';
         turnPlayer = 'player2';
         updateTittle()
     } else {
-        span.innerText = 'O';
+        div.innerText = 'O';
         vBoard[row][col] = 'O';
         turnPlayer = 'player1';
         updateTittle()
     }
     console.clear();
     console.table(vBoard);
-    disableBoard(span);
+    disableBoard(div);
     const winBoard = getWinRegion();
     
     if (winBoard.length > 0) {
@@ -81,7 +81,7 @@ function handleBoardClick(event) {
             document.querySelector(`[data-region="${element}"]`).classList.add('win');
         });
         const playerInput = document.getElementById(turnPlayer);
-        document.querySelector('h2').innerHTML = `O vencedor é: <span id="turnPlayer">${playerInput.value}</span>`
+        document.querySelector('h2').innerHTML = `O vencedor é: <div id="turnPlayer">${playerInput.value}</div>`
         board.forEach( function (element)  {
             element.removeEventListener('click', handleBoardClick);
         });
