@@ -80,7 +80,8 @@ function handleBoardClick(event) {
         winBoard.forEach( function (element) {
             document.querySelector(`[data-region="${element}"]`).classList.add('win');
         });
-        const playerInput = document.getElementById(turnPlayer);
+        let playerInput = turnPlayer === 'player1' ? document.getElementById('player2') : document.getElementById('player1');
+        console.log(playerInput.value);
         document.querySelector('h2').innerHTML = `O vencedor é: <div id="turnPlayer">${playerInput.value}</div>`
         board.forEach( function (element)  {
             element.removeEventListener('click', handleBoardClick);
