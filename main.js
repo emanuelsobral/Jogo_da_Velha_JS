@@ -49,7 +49,7 @@ function getWinRegion() {
 }
 
 function disableBoard(element) {
-    element.style.cursor = 'default';
+    element.classList.remove = ('cursor-pointer');
     element.removeEventListener('click', handleBoardClick);
     updateTittle();
 }
