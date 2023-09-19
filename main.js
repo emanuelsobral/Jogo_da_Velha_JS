@@ -14,6 +14,7 @@ function initializeGame() {
     updateTittle();
     board.forEach( function (element)  {
         element.classList.remove('win');
+        element.classList.add('cursor-pointer')
         element.innerText = '';
         element.addEventListener('click', handleBoardClick);
     });
@@ -49,7 +50,7 @@ function getWinRegion() {
 }
 
 function disableBoard(element) {
-    element.classList.remove = ('cursor-pointer');
+    element.classList.remove('cursor-pointer');
     element.removeEventListener('click', handleBoardClick);
     updateTittle();
 }
