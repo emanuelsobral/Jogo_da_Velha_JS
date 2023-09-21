@@ -1,8 +1,6 @@
 # Jogo da Velha em JavaScript
 
-Este projeto é um jogo da velha simples implementado em HTML, CSS e JavaScript.
-
-
+Este projeto é um jogo da velha simples implementado em HTML, CSS e JavaScript. Ele foi criado como parte de um curso de JavaScript, com o objetivo de aplicar e praticar os conceitos aprendidos durante o curso. O jogo da velha é um exemplo clássico usado frequentemente em cursos de programação devido à sua simplicidade, mas também porque envolve conceitos importantes como manipulação de arrays, controle de fluxo e interação com o DOM.
 
 ## 🎮 Funcionalidades
 
