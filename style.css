@@ -27,8 +27,8 @@ body {
   
   #gameBoard div {
     border-radius: 20px;
-    width: 16rem;
-    height: 16rem;
+    width: 2em;
+    height: 2em;
     background-color: #ddd;
     display: grid;
     place-content: center;

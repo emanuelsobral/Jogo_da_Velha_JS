@@ -14,11 +14,13 @@ function updateTittle() {
 
 function initializeGame() {
     if (player1.value === '' || player2.value === '') {
-        alert('Preencha os nomes dos jogadores');
+        document.getElementById('noName').style.display='block'
+        document.getElementById('sameName').style.display = "none";
         return;
     }
     if (player1.value === player2.value) {
-        alert('Os nomes dos jogadores devem ser diferentes');
+        document.getElementById('sameName').style.display = "block";
+        document.getElementById('noName').style.display='none'
         return;
     }
     if (player1.value !== '' && player2.value !== '') {
