@@ -7,6 +7,26 @@ const boardContainer = document.getElementById('boardContainer');
 const player1 = document.getElementById('player1');
 const player2 = document.getElementById('player2');
 
+const themeButton = document.getElementById('themeButton');
+
+if (localStorage.theme == "Dark") {
+    themeButton.checked = true
+    document.body.classList.add('darkMode')
+} else if (localStorage.theme == "Light") {
+    themeButton.checked = false
+    document.body.classList.remove('darkMode')
+}
+
+themeButton.addEventListener('change', function(){
+    if (themeButton.checked) {
+        document.body.classList.add('darkMode')
+        localStorage.theme = "Dark"
+    } else {
+        document.body.classList.remove('darkMode')
+        localStorage.theme = "Light";
+    }
+})
+
 function updateTittle() {
     const playerInput = document.getElementById(turnPlayer);
     document.getElementById('turnPlayer').innerText = playerInput.value;

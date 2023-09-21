@@ -1,5 +1,84 @@
+:root{
+  --backgroung: #EEEEEE;
+  --textColor: #222831;
+  --inputColors : #FFF;
+  --winCOlor: #00ADB5;
+  --midColor: #393E46;
+}
+
+:root .darkMode{
+  --backgroung:#222831;
+  --textColor: #EEEEEE;
+  --winCOlor: #00ADB5;
+  --midColor: #393E46;
+}
+
 body {
     font-family: sans-serif;
+    background: var(--backgroung);
+    color: var(--textColor);
+  }
+
+  header{
+    width: 100%;
+    height: 40px;
+    display: grid;
+    justify-content: end;
+    position: fixed;
+  }
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-right: 40px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    border-radius: 20px;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    border-radius: 20px;
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: var(--winCOlor);
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px var(--winCOlor);
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
   }
   
   #turnplayer {
@@ -29,14 +108,15 @@ body {
     border-radius: 20px;
     width: 2em;
     height: 2em;
-    background-color: #ddd;
+    color: var(--textColor);
+    background-color: var(--midColor);
     display: grid;
     place-content: center;
     font-size: 5rem;
   }
   
   #gameBoard div.win {
-    background-color: #25a340;
+    background-color: var(--winCOlor);
   }
   
   .cursor-pointer {
@@ -52,10 +132,11 @@ body {
     height: 40px;
     border-radius: 20px;
     border: none;
-    background-color: #ddd;
+    background-color: var(--midColor);
     cursor: pointer;
     margin: 0.5rem;
     font-size: 1.2rem;
+    color: var(--inputColors);
   }
 
   label{
@@ -68,7 +149,8 @@ body {
     height: 40px;
     border-radius: 20px;
     border: none;
-    background-color: #ddd;
+    background-color: var(--midColor);
+    color: var(--inputColors);
     cursor: pointer;
     margin: 0.5rem;
     font-size: 1rem;
@@ -76,8 +158,8 @@ body {
 
   button:hover {
     transition: .5s;
-    background-color: #25a340;
-    color: #fff;
+    background-color: var(--winCOlor);
+    color: var(--inputColors);
   }
 
   @media screen and (max-width : 768px) {
