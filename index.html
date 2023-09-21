@@ -8,24 +8,36 @@
   <script src="main.js" defer></script>
 </head>
 <body>
-  <h1>Jogo da Velha</h1>
-  <hr>
-  <label for="player1">X</label>
-  <input type="text" id="player1" placeholder="Nome do Jogador 1">
-  <label for="player2">O</label>
-  <input type="text" id="player2" placeholder="Nome do Jogador 2">
-  <button id="start">Começar!</button>
-  <h2>Vez de: <span id="turnPlayer"></span></h2>
-  <section id="gameBoard">
-    <div class="cursor-pointer" data-region="0.0"></div>
-    <div class="cursor-pointer" data-region="0.1"></div>
-    <div class="cursor-pointer" data-region="0.2"></div>
-    <div class="cursor-pointer" data-region="1.0"></div>
-    <div class="cursor-pointer" data-region="1.1"></div>
-    <div class="cursor-pointer" data-region="1.2"></div>
-    <div class="cursor-pointer" data-region="2.0"></div>
-    <div class="cursor-pointer" data-region="2.1"></div>
-    <div class="cursor-pointer" data-region="2.2"></div>
-  </section>
+
+  <div class="gameContainer" id="labelContainer" style="display: flex;">
+    <h1>Jogo da Velha</h1>
+    <div class="inputContainer">
+      <label for="player1">X</label>
+      <input type="text" id="player1" placeholder="Nome do Jogador 1">
+      <label for="player2">O</label>
+      <input type="text" id="player2" placeholder="Nome do Jogador 2">
+      <button id="start">Começar ▶︎</button>
+    </div>
+  </div>
+  
+  <div class="gameContainer" id="boardContainer" style="display: none;">
+    <h2>Vez de: <span id="turnPlayer"></span></h2>
+    <section id="gameBoard">
+      <div class="cursor-pointer" data-region="0.0"></div>
+      <div class="cursor-pointer" data-region="0.1"></div>
+      <div class="cursor-pointer" data-region="0.2"></div>
+      <div class="cursor-pointer" data-region="1.0"></div>
+      <div class="cursor-pointer" data-region="1.1"></div>
+      <div class="cursor-pointer" data-region="1.2"></div>
+      <div class="cursor-pointer" data-region="2.0"></div>
+      <div class="cursor-pointer" data-region="2.1"></div>
+      <div class="cursor-pointer" data-region="2.2"></div>
+    </section>
+    <div class="buttonContainer">
+      <button id="restart">Recomeçar ↻</button>
+      <button id="refresh">Mudar Jogadores ↩</button>
+    </div>
+  </div>
+  
 </body>
 </html>

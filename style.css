@@ -2,17 +2,33 @@ body {
     font-family: sans-serif;
   }
   
+  #turnplayer {
+    font-size: 2rem;
+    margin: 1rem;
+  }
+
+  .gameContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
   #gameBoard {
-    background-color: #232323;
     display: grid;
-    grid-template-columns: 6rem 6rem 6rem;
-    grid-template-rows: 6rem 6rem 6rem;
-    gap: .5rem;
-    margin-bottom: 1.5rem;
-    max-width: 19rem;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+    gap: 1rem;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
   }
   
   #gameBoard div {
+    border-radius: 20px;
+    width: 16rem;
+    height: 16rem;
     background-color: #ddd;
     display: grid;
     place-content: center;
@@ -25,4 +41,41 @@ body {
   
   .cursor-pointer {
     cursor: pointer;
+  }
+
+  .buttonContainer{
+    display: flex;
+  }
+
+  button {
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    background-color: #ddd;
+    cursor: pointer;
+    margin: 0.5rem;
+    font-size: 1.2rem;
+  }
+
+  label{
+    font-size: 1.5rem;
+  }
+
+  input[type="text"] {
+    text-align: center;
+    width: 200px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    background-color: #ddd;
+    cursor: pointer;
+    margin: 0.5rem;
+    font-size: 1rem;
+  }
+
+  button:hover {
+    transition: 1s;
+    background-color: #25a340;
+    color: #fff;
   }
