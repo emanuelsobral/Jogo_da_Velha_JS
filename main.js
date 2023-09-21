@@ -1,6 +1,11 @@
 const board = document.querySelectorAll('#gameBoard div');
 let vBoard = []
 let turnPlayer = '';
+const labelContainer = document.getElementById('labelContainer');
+const boardContainer = document.getElementById('boardContainer');
+
+const player1 = document.getElementById('player1');
+const player2 = document.getElementById('player2');
 
 function updateTittle() {
     const playerInput = document.getElementById(turnPlayer);
@@ -8,15 +13,40 @@ function updateTittle() {
 }
 
 function initializeGame() {
+    if (player1.value === '' || player2.value === '') {
+        alert('Preencha os nomes dos jogadores');
+        return;
+    }
+    if (player1.value === player2.value) {
+        alert('Os nomes dos jogadores devem ser diferentes');
+        return;
+    }
+    if (player1.value !== '' && player2.value !== '') {
+        labelContainer.style.display = 'none';
+        boardContainer.style.display = 'flex';
+        vBoard = [["","",""], ["","",""], ["","",""]];
+        turnPlayer = "player1"
+        document.querySelector('h2').innerHTML = 'Vez de: <span id="turnPlayer"></span>'
+        updateTittle();
+        board.forEach( function (element)  {
+            element.classList.remove('win');
+            element.classList.add('cursor-pointer')
+            element.innerText = '';
+            element.addEventListener('click', handleBoardClick);
+        });
+    }
+}
+
+function restartGame() {
     vBoard = [["","",""], ["","",""], ["","",""]];
-    turnPlayer = "player1"
-    document.querySelector('h2').innerHTML = 'Vez de: <div id="turnPlayer"></div>'
-    updateTittle();
-    board.forEach( function (element)  {
-        element.classList.remove('win');
-        element.classList.add('cursor-pointer')
-        element.innerText = '';
-        element.addEventListener('click', handleBoardClick);
+        turnPlayer = "player1"
+        document.querySelector('h2').innerHTML = 'Vez de: <span id="turnPlayer"></span>'
+        updateTittle();
+        board.forEach( function (element)  {
+            element.classList.remove('win');
+            element.classList.add('cursor-pointer')
+            element.innerText = '';
+            element.addEventListener('click', handleBoardClick);
     });
 }
 
@@ -83,7 +113,7 @@ function handleBoardClick(event) {
         });
         let playerInput = turnPlayer === 'player1' ? document.getElementById('player2') : document.getElementById('player1');
         console.log(playerInput.value);
-        document.querySelector('h2').innerHTML = `O vencedor é: <div id="turnPlayer">${playerInput.value}</div>`
+        document.querySelector('h2').innerHTML = `O vencedor é: <span id="turnPlayer">${playerInput.value}</span>`
         board.forEach( function (element)  {
             element.removeEventListener('click', handleBoardClick);
         });
@@ -100,3 +130,7 @@ function handleBoardClick(event) {
 }
 
 document.getElementById('start').addEventListener('click', initializeGame);
+document.getElementById('restart').addEventListener('click', restartGame);
+document.getElementById('refresh').addEventListener('click', function () {
+    location.reload();
+});
