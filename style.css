@@ -79,3 +79,35 @@ body {
     background-color: #25a340;
     color: #fff;
   }
+
+  @media screen and (max-width : 768px) {
+
+    .inputContainer{
+      display: grid;
+      justify-items: center;
+    }
+
+    #gameBoard {
+      gap: 0.5rem;
+    }
+
+    #gameBoard div {
+        width : 6rem; 
+        height : 6rem; 
+        font-size : 3rem; 
+    }
+    
+    button, input[type="text"] {
+        width : 150px; 
+        height : 30px; 
+        font-size : .8rem; 
+    }
+    
+    label{
+        font-size : 1.2rem; 
+    }
+    
+    #turnplayer {
+        font-size : 1.5rem; 
+    }
+ }
